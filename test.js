@@ -34,19 +34,22 @@ const squared = arr.map((el, index) => {
 console.log(squared);
 
 
+// forEach
 
-// program to take sum of elements
+
+// custom greeting for user
 
 // note : forEach wont return something
 
 
-let sum = 0
-arr.forEach((el, index) => {
-    sum += el;
-})
-
-console.log(sum);
-// console.log(t)
+const users = [
+    { name: "Alice" },
+    { name: "Bob" },
+    { name: "Charlie" },
+    { name: "David" },
+  ];
+  
+users.forEach((user) => console.log(`hello and welcome ${user.name}!`));
 
 
 
@@ -191,3 +194,66 @@ exePromise();
 
 
 
+
+// destructring problem 
+
+
+// You are working on a task management application. In your application, each task is represented as an object with various properties. You need to create functions that operate on task objects and utilize destructuring to extract specific properties.
+// Function 1: Display Task Information
+// Write a function displayTaskInfo that takes a task object as a parameter and logs the task's title and status to the console. Use destructuring to extract the title and status properties.
+// Function 2: Update Task Status
+// Write a function updateTaskStatus that takes a task object and a new status as parameters. The function should return a new task object with the updated status. Use destructuring and object shorthand notation to create the new object.
+
+
+
+
+const task = {
+    id: 1,
+    title: "Complete project proposal",
+    description: "Write and submit the project proposal by Friday.",
+    status: "In Progress",
+    priority: "High",
+};
+
+const displayTaskInfo = (task) => {
+    const {title, status} = task
+    return `title is ${title} and status is ${status}`
+}
+
+const updateTaskStatus = (task, status) => {
+    return {...task, status: status}
+}
+
+console.log(displayTaskInfo(task))
+
+console.log(updateTaskStatus(task, "Approved"))
+
+
+
+// Function: Calculate Total Price
+// Write a function calculateTotalPrice that takes the base price and any number of discount values as arguments. The function should apply the discounts to the base price and return the final total.
+// The base price is a required parameter.
+// Discounts are optional and can be provided as additional arguments.
+// If no discounts are provided, the function should return the base price without any discount.
+// If discounts are provided, the function should apply each discount sequentially to the base price.
+
+
+
+const calculateTotalPrice = (basePrice, ...discounts) => {
+    // let finalPrice = basePrice;
+    const fPrice = discounts.reduce((acc, curr) => {
+        return acc - ((curr/acc)*100)
+    }, basePrice)
+
+
+    return fPrice;
+
+    // for(let discount of discounts){
+    //     // console.log("discount : ", discount);
+    //     finalPrice -= ((discount/finalPrice)*100);
+    //     // console.log("final price is : ", finalPrice)
+    // }
+    // return finalPrice
+}
+
+console.log(calculateTotalPrice(100, 10, 20, 30));
