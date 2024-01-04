@@ -244,8 +244,6 @@ const calculateTotalPrice = (basePrice, ...discounts) => {
     const fPrice = discounts.reduce((acc, curr) => {
         return acc - ((curr/acc)*100)
     }, basePrice)
-
-
     return fPrice;
 
     // for(let discount of discounts){
