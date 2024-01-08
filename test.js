@@ -255,3 +255,21 @@ const calculateTotalPrice = (basePrice, ...discounts) => {
 }
 
 console.log(calculateTotalPrice(100, 10, 20, 30));
+
+
+
+
+
+// optional chaining 
+
+const person = {
+    name: 'Alice',
+    address: {
+      city: 'Wonderland',
+      postalCode: '12345'
+    }
+};
+
+console.log(person?.address?.postalCode);
+
+
